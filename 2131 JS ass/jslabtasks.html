@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> javascript Assignment </title>
+	
+
+
+	<script type="text/javascript">
+
+     
+     //QUESTION 1
+   function js_style() 
+{
+	text.style.fontSize = "30px";
+    text.style.fontFamily = "Comic Sans MS";
+    text.style.color = "cyan";
+}
+
+
+           //QUESTION 2
+        var n1,n2;
+		function add()
+		{
+			n1=document.myform.n1.value;
+			n2=document.myform.n2.value;
+			n1=parseFloat(n1);
+			n2=parseFloat(n2);
+			r=n1+n2;
+			document.myform.result.value=r;
+		}
+
+		function sub()
+		{
+			n1=document.myform.n1.value;
+			n2=document.myform.n2.value;
+			n1=parseFloat(n1);
+			n2=parseFloat(n2);
+			r=n1-n2;
+			document.myform.result.value=r;
+		}
+
+		function mul()
+		{
+			n1=document.myform.n1.value;
+			n2=document.myform.n2.value;
+			n1=parseFloat(n1);
+			n2=parseFloat(n2);
+			r=n1*n2;
+			document.myform.result.value=r;
+		}
+
+		function div()
+		{
+			n1=document.myform.n1.value;
+			n2=document.myform.n2.value;
+			n1=parseFloat(n1);
+			n2=parseFloat(n2);
+			r=n1/n2;
+			document.myform.result.value=r;
+		}
+
+
+
+         //QUESTION 4
+        function printTable(){
+		var num;
+		num=Number(document.getElementById('txtNumber').value);
+		for(var i=1; i<=10; i++){
+			var pT= document.getElementById('pPrint');
+			pT.innerHTML += (num*i) + "<br/>" 
+		}
+	}
+
+        //QUESTION 9
+       function insert_Row(){
+           var x=document.getElementById('sampleTable').insertRow(0);
+           var y = x.insertCell(0);
+             var z = x.insertCell(1);
+           y.innerHTML="New C1";
+            z.innerHTML="New C2";
+}
+
+ //QUESTION 10
+function changeContent()
+{
+    rn = window.prompt("Input the Row number(0,1,2)", "0");
+    cn = window.prompt("Input the Column number(0,1)","0");
+         content = window.prompt("Input the Cell content");  
+           var x=document.getElementById('myTable').rows[parseInt(rn,10)].cells;
+           x[parseInt(cn,10)].innerHTML=content;
+}
+
+
+//QUESTION 11
+function createTable()
+{
+rn = window.prompt("Input number of rows", 1);
+cn = window.prompt("Input number of columns",1);
+  
+ for(var r=0;r<parseInt(rn,10);r++)
+  {
+   var x=document.getElementById('myTable').insertRow(r);
+   for(var c=0;c<parseInt(cn,10);c++)  
+    {
+     var y=  x.insertCell(c);
+     y.innerHTML="Row-"+r+" Column-"+c; 
+    }
+   }
+}
+
+  //QUESTION 12
+
+function removecolor()
+{
+var x=document.getElementById("NameSelect");
+x.remove(x.selectedIndex);
+}
+
+
+
+//QUESTION 13
+//First create a list of all bold items 
+var bold_Items;
+window.onload = getBold_items();
+ 
+// Collect all <strong> tags
+function getBold_items() 
+{
+  bold_Items = document.getElementsByTagName('strong'); 
+}
+// iterate all bold tags and change color  
+function highlight() 
+{
+   for (var i=0; i<bold_Items.length; i++)
+   {                                                    
+    bold_Items[i].style.color = "Deeppink";
+    }
+}
+
+// On mouse out highlighted words become black
+function return_normal()
+{
+  for (var i=0; i<bold_Items.length; i++) 
+  {
+       bold_Items[i].style.color = "black";
+  }
+}
+</script>
+</head>
+
+
+
+
+
+
+<body>
+	      <!--QUESTION 1 -->
+         <center> 
+      <h1> Question 1 Changing styles</h1>
+      <p id ='text' align="center" > The font style , color and font size will change</p> 
+       <div>
+        <button id="jsstyle"  onclick="js_style()">Style</button>
+         </div>
+     </center>
+
+        <!--QUESTION 2 -->
+        <hr color="red">
+	   <form name="myform">
+		<h1 align="center"> Question 2 Arithmatic Operations</h1>
+		<center><u>Enter a number in each text box</u><br><br>
+			Number 1:<input type="text" name="n1" value="""><br><br>
+			Number 2:<input type="text" name="n2" value="""><br><br>
+			<input type="button" value="Add" onclick="add()">
+			<input type="button" value="Subtract" onclick="sub()">
+			<input type="button" value="Multiply" onclick="mul()">
+			<input type="button" value="Divide" onclick="div()"><br><br>
+			<font color="red">RESULT is:
+		       <input type="text" name="result" value="">
+			   </font>
+		    </center>
+		</form>
+
+
+             <!--QUESTION 3-->
+			<hr color ="red">
+			<center>
+            <h1> Question 3 larger number</h1>
+			 <button onclick="document.location='q3.html'">click to enter numbers</button>
+			</center>
+
+			
+			 <!--QUESTION 4 -->
+			 <hr color ="red">
+			 <center>
+            <h1> Question 4 Table of number</h1>
+           <p><input type="text" id="txtNumber" placeholder="Enter number"/></p>
+		   <p><input type="button" value="Print Table." onclick='printTable()'/>
+		      <p id="pPrint"></p>
+	          </center>
+
+
+       <!-- QUESTION 5-->
+     <hr color ="red">
+     <center>
+    <h1> Question 5  dynamic para</h1>
+    
+       <div id="div1">
+        <p id="p1">This is a paragraph.</p>
+        <p id="p2">This is another paragraph.</p>
+     </div>
+  </center>
+
+<script>
+             var para = document.createElement("P");
+             var node = document.createTextNode("This is dynamically created para.");
+              para.appendChild(node);
+              var element = document.getElementById("div1");
+              var child = document.getElementById("p1");//search the first p element
+
+             element.insertBefore(para, child);
+</script>
+
+
+            <!-- QUESTION 6-->
+            <hr color ="red">
+            <center>
+             <h1> Question 6 dynamic form</h1>
+			 <p> Click on the button to create a form dynamically </p> 
+             <button onclick="document.location='q6.html'">generate form</button>
+           </center>
+
+
+           <!-- QUESTION 7-->
+           <hr color ="red">
+           <h1 align="center"> Question 7  stacked para</h1>
+	       <center>
+             <button onclick="document.location='q7.html'">Click here</button>
+	           	
+              
+       </center>
+
+
+            <!--- QUESTION 8-->
+          <hr color ="red">
+             <center>
+             <h1> Question 8  USN code</h1>
+			 <button onclick="document.location='q8.html'">click to enter numbers</button>
+			</center>
+
+
+
+			<!-- QUESTION 9 -->
+			<hr color ="red">
+			<center>
+			<h1> Question 9  Row insertion</h1>
+			<table id="sampleTable" border="1"> 
+            <tr><td>R1 C1</td> 
+            <td>R1 C2</td></tr> 
+            <tr><td>R2 C2</td> 
+             <td>R2 C2</td></tr> 
+            </table><br> 
+              <input type="button" onclick="insert_Row()"  value="Insert row">
+            </center>
+
+
+
+
+
+
+              <!--- QUESTION 10-->
+             <hr color ="red">
+             <center>
+             <h1> Question 10 cell content updation</h1>
+                <table id="myTable" border="1"> 
+                  <tr><td>R1 C1</td> 
+                <td>R1 C2</td></tr> 
+                 <tr><td>R2 C1</td> 
+                   <td>R2 C2</td></tr> 
+                  <tr><td>R3 C1</td> 
+                   <td>R3 C2</td></tr> 
+                 </table>
+
+                 <form> <br>
+                    <input type="button" onclick="changeContent()" value="Change content"> 
+                   </form>
+              </center>
+
+
+
+             <!--QUESTION 11 -->
+             <hr color ="red">
+             <center>
+             <h1> Question 11 table creation</h1>
+             <table id="myTable" border="1">
+              </table>
+              <form>
+                   <input type="button" onclick="createTable()" value="Create the table">
+               </form>
+             </center>
+
+
+
+           <!-- QUESTION 12 -->
+            <hr color ="red">
+            <center>
+          <h1> Question 12  removal of list items</h1>
+             <form> 
+          <select id="NameSelect"> 
+          <option>Wajdan</option> 
+           <option>Maleeha</option> 
+            <option>Faris</option> 
+           <option>Zumar</option> 
+         </select> 
+            <input type="button" onclick="removecolor()" value="Select and Remove"> 
+            </form>
+        </center>
+
+
+           <!-- QUESTION 13-->
+            <hr color ="red">
+            <center>
+        <h1> Question 13 highlight bold words</h1>
+   <p>[<a href="#" onMouseOver="highlight()" onMouseOut="return_normal()">On mouse over bold words will be highlighted</a>]</p> 
+<p><strong>In</strong> the ups and <strong>down</strong> of life such moment (<strong>occur</strong> when a man) loses its  <strong>hope</strong> to cope up  with <strong>difficult</strong> Circumstances and  <strong>problems</strong> at that time only  <strong>ALLAH</strong> make us<strong>Strong</strong> and prevent us from falling</p>
+</center>
+
+<!--- QUESTION 14 --->
+	<hr color ="red">
+	         <center>
+	        <h1> Question 14 javascript quiz</h1>
+			<button onclick="document.location='q14.html'">Start Quiz</button>
+		</center>
+
+		<br>
+		<hr color ="red">
+	</body>
+</html>

@@ -1,0 +1,22 @@
+<html>
+<head>
+	</head>
+	<body>
+
+
+<div id="div1">
+  <p id="p1">This is a paragraph.</p>
+  <p id="p2">This is another paragraph.</p>
+</div>
+
+<script>
+var para = document.createElement("P");//make an p element
+var node = document.createTextNode("This is new.");//create an innerhtml node
+para.appendChild(node);//add the text to the p element
+
+var element = document.getElementById("div1");//search the div1
+var child = document.getElementById("p1");//search the first p element
+element.insertBefore(para, child);//inserts the p element before the first paragraph
+</script>
+</body>
+</html>
